@@ -37,11 +37,11 @@ class Article < ApplicationRecord
 
   belongs_to :group, optional: true
 
-  validates :guid, presence: true, uniqueness: { scope: :channel_id }
+  validates :guid, presence: true, uniqueness: {scope: :channel_id}
 
-  validates :primary_image_url, url: { allow_blank: true }
+  validates :primary_image_url, url: {allow_blank: true}
 
-  validates :thumbnail_image_url, url: { allow_blank: true }
+  validates :thumbnail_image_url, url: {allow_blank: true}
 
   validates :title, presence: true
 
@@ -49,7 +49,7 @@ class Article < ApplicationRecord
 
   paginates_per 5
 
-  scope :uses_scraper, -> { joins(:channel).where(channels: { use_scraper: true }) }
+  scope :uses_scraper, -> { joins(:channel).where(channels: {use_scraper: true}) }
 
   def self.pluck_processing_data # rubocop:disable Metrics/MethodLength
     pluck(

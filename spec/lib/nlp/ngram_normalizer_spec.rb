@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.describe NLP::NgramNormalizer do
-  it 'returns ngrams from the normalized sentences' do
-    input = 'The cat in the hat is excellent! Red fish, blue fish.'
+  it "returns ngrams from the normalized sentences" do
+    input = "The cat in the hat is excellent! Red fish, blue fish."
 
     result = described_class.call(input)
 

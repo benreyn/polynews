@@ -7,7 +7,7 @@ def system!(*args)
 end
 
 system! 'bin/rspec'
-system! 'bundle exec rubocop'
+system! 'bundle exec standardrb'
 system! 'bundle exec rubycritic'
 
 puts "\nVerification Successful"

@@ -12,6 +12,6 @@ module Features
   end
 
   def form_error_messages
-    all('.invalid-feedback').map(&:text)
+    all(".invalid-feedback").map(&:text)
   end
 end

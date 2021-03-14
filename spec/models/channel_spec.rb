@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Channel, type: :model do
   subject(:channel) { described_class.new }
@@ -15,13 +15,13 @@ RSpec.describe Channel, type: :model do
     is_expected.to have_many(:articles).dependent(:destroy)
   end
 
-  it 'defaults use_scraper to false' do
+  it "defaults use_scraper to false" do
     channel = described_class.new
 
     expect(channel.use_scraper).to be false
   end
 
-  describe 'url uniqueness' do
+  describe "url uniqueness" do
     subject(:channel) { build(:channel) }
 
     it { is_expected.to validate_uniqueness_of :url }

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'open-uri'
+require "open-uri"
 
 module Groups
   class Cleaner
@@ -20,7 +20,7 @@ module Groups
 
     def clean_articles
       Article.where(
-        'published_at < ? OR group_id IS NULL', clean_before
+        "published_at < ? OR group_id IS NULL", clean_before
       ).delete_all
     end
 

@@ -7,17 +7,19 @@ class CategoriesController < SecureController
     @categories = Category.all.order(:sort_order).page(params[:page])
   end
 
-  def show; end
+  def show
+  end
 
   def update
     if @category.update(category_params)
-      redirect_to @category, success: 'Successfully updated category'
+      redirect_to @category, success: "Successfully updated category"
     else
       render :edit
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def new
     @category = Category.new
@@ -27,7 +29,7 @@ class CategoriesController < SecureController
     @category = Category.new(category_params)
 
     if @category.save
-      redirect_to @category, success: 'Successfully created category'
+      redirect_to @category, success: "Successfully created category"
     else
       render :new
     end
@@ -35,10 +37,10 @@ class CategoriesController < SecureController
 
   def destroy
     if @category.destroy
-      redirect_to categories_path, success: 'Successfully deleted category'
+      redirect_to categories_path, success: "Successfully deleted category"
     else
       redirect_to categories_path, {
-        error: 'Could not delete category. Please veify there are no channels.'
+        error: "Could not delete category. Please veify there are no channels."
       }
     end
   end

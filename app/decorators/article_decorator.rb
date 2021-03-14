@@ -17,7 +17,7 @@ class ArticleDecorator < Draper::Decorator
     stripped = strip_tags(description)
     return stripped if stripped.length <= SUMMARY_LENGTH
 
-    index_of_last_space_before_end = stripped.first(SUMMARY_LENGTH).rindex(' ')
+    index_of_last_space_before_end = stripped.first(SUMMARY_LENGTH).rindex(" ")
 
     "#{stripped.first(index_of_last_space_before_end)}..."
   end

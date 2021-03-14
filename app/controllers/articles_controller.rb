@@ -5,33 +5,35 @@ class ArticlesController < SecureController
 
   def index # rubocop:disable Metrics/MethodLength
     @articles = Article
-                  .includes(:channel, :group)
-                  .select(
-                    :id,
-                    :title,
-                    :published_at,
-                    :description,
-                    :url,
-                    :channel_id,
-                    :group_id,
-                    :primary_image_url,
-                    :thumbnail_image_url
-                  )
-                  .order(:created_at)
-                  .page(params[:page])
+      .includes(:channel, :group)
+      .select(
+        :id,
+        :title,
+        :published_at,
+        :description,
+        :url,
+        :channel_id,
+        :group_id,
+        :primary_image_url,
+        :thumbnail_image_url
+      )
+      .order(:created_at)
+      .page(params[:page])
   end
 
-  def show; end
+  def show
+  end
 
   def update
     if @article.update(article_params)
-      redirect_to @article, success: 'Successfully updated article'
+      redirect_to @article, success: "Successfully updated article"
     else
       render :edit
     end
   end
 
-  def edit; end
+  def edit
+  end
 
   def new
     @article = Article.new
@@ -41,7 +43,7 @@ class ArticlesController < SecureController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to @article, success: 'Successfully created article'
+      redirect_to @article, success: "Successfully created article"
     else
       render :new
     end
@@ -49,7 +51,7 @@ class ArticlesController < SecureController
 
   def destroy
     @article.destroy
-    redirect_to articles_path, success: 'Successfully deleted article'
+    redirect_to articles_path, success: "Successfully deleted article"
   end
 
   private

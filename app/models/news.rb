@@ -2,7 +2,7 @@
 
 class News
   attr_reader :params, :category, :featured, :emphasized, :minimized,
-              :paging_collection
+    :paging_collection
 
   def initialize(params)
     @params = params

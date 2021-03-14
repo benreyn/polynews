@@ -4,10 +4,10 @@ module FlashHelper
   FlashType = Struct.new(:alert_class, :icon_class)
 
   FLASH_MAP = {
-    'error' => FlashType.new('danger', 'fas fa-bug'),
-    'notice' => FlashType.new('primary', 'fas fa-info-circle'),
-    'alert' => FlashType.new('warning', 'fas fa-exclamation-circle'),
-    'success' => FlashType.new('success', 'fas fa-check-circle')
+    "error" => FlashType.new("danger", "fas fa-bug"),
+    "notice" => FlashType.new("primary", "fas fa-info-circle"),
+    "alert" => FlashType.new("warning", "fas fa-exclamation-circle"),
+    "success" => FlashType.new("success", "fas fa-check-circle")
   }.freeze
 
   def displayable_flash_types

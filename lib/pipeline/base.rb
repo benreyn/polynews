@@ -46,7 +46,7 @@ module Pipeline
         @operations << operation
       end
 
-      alias apply use
+      alias_method :apply, :use
 
       def map_by(operation)
         use ->(array) { array.map { |element| operation.call(element) } }

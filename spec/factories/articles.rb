@@ -16,11 +16,11 @@ FactoryBot.define do
 
     published_at { DateTime.now }
 
-    url { 'http://www.example.com' }
+    url { "http://www.example.com" }
 
     channel
 
-    content { 'The full content is here' }
+    content { "The full content is here" }
 
     trait :uses_scraper do
       association :channel, :uses_scraper

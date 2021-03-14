@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Groups::MinimizedQuery do
-  it 'returns the correct records' do
+  it "returns the correct records" do
     minimized_by_count = create(:group, :minimized_by_count)
     minimized_by_absence_of_image = create(:group, :minimized_by_absence_of_image)
 

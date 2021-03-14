@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'json'
+require "json"
 
 module ApplicationHelper
   def coalesce(*values)
@@ -20,11 +20,11 @@ module ApplicationHelper
   end
 
   def yes_no(boolean)
-    boolean ? 'Yes' : 'No'
+    boolean ? "Yes" : "No"
   end
 
   def page_n_of_m(collection)
-    return '' if collection.empty?
+    return "" if collection.empty?
 
     "Page #{collection.current_page} of #{collection.total_pages}"
   end

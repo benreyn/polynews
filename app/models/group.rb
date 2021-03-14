@@ -34,7 +34,7 @@ class Group < ApplicationRecord
   scope :minimized, Groups::MinimizedQuery
 
   def self.update_cached_attributes! # rubocop:disable Metrics/MethodLength
-    update_all(  # rubocop:disable Rails/SkipsModelValidations
+    update_all( # rubocop:disable Rails/SkipsModelValidations
       <<-SQL.squish
         cached_article_count = (
           SELECT COUNT(*) FROM articles a WHERE a.group_id = groups.id

@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'open-uri'
+require "open-uri"
 
 module Channels
   class FeedDownloader
     attr_reader :channel, :feed, :invalid_entry_count, :discard_articles_before,
-                :allowed_invalid_entry_percent
+      :allowed_invalid_entry_percent
 
     def initialize(
       channel,
@@ -59,7 +59,7 @@ module Channels
 
     def create_article_from_entry(article, entry)
       article.update!(entry.article_attributes)
-    rescue StandardError => e # rubocop:disable Lint/UselessAssignment
+    rescue => e # rubocop:disable Lint/UselessAssignment
       handle_article_creation_error(entry)
     end
 
@@ -75,7 +75,7 @@ module Channels
       return unless invalid_entry_count > max_allowed_invalid_entries
 
       raise ExceededMaxInvalidEntryCount, \
-            "Channel: #{channel.id} is invalid. Entry: #{entry.inspect}"
+        "Channel: #{channel.id} is invalid. Entry: #{entry.inspect}"
     end
 
     def max_allowed_invalid_entries

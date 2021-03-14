@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Group, type: :model do
   it :aggregate_failures do
@@ -8,8 +8,8 @@ RSpec.describe Group, type: :model do
     is_expected.to have_many(:articles).dependent(:restrict_with_error)
   end
 
-  describe '.update_cached_attributes!' do
-    it 'updates the cached attributes for all records' do
+  describe ".update_cached_attributes!" do
+    it "updates the cached attributes for all records" do
       some_group = create(
         :group,
         :with_articles,

@@ -12,7 +12,7 @@ FactoryBot.define do
 
     last_build_date { DateTime.now }
 
-    description { 'This describes the channel' }
+    description { "This describes the channel" }
 
     trait :uses_scraper do
       use_scraper { true }

@@ -5,9 +5,9 @@ module NLP
     include NLP::Operations
     extend NLP::Operations
 
-    apply  SentenceTokenizer
+    apply SentenceTokenizer
     map_by WordNormalizer
     map_by NGramGenerator.size(2)
-    apply  Flattener.depth(1)
+    apply Flattener.depth(1)
   end
 end

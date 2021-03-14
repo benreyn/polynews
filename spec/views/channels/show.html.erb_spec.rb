@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'channels/show', type: :view do
-  it 'renders the associated articles' do
+RSpec.describe "channels/show", type: :view do
+  it "renders the associated articles" do
     channel = build(
       :channel,
       id: 1,

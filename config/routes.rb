@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   resources :channels
   resources :groups
 
-  get 'news/:category', to: 'news#index', as: :news
-  root to: redirect('news/us')
+  get "news/:category", to: "news#index", as: :news
+  root to: redirect("news/us")
 end

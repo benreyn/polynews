@@ -4,7 +4,7 @@ module NLP
   module BOW
     class TfIdfAlgorithm
       attr_reader :model, :document, :document_token_counts, :vector_length,
-                  :document_total_tokens
+        :document_total_tokens
 
       def initialize(model, document)
         @model = model

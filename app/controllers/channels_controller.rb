@@ -7,19 +7,21 @@ class ChannelsController < SecureController
     @channels = Channel.all.includes(:category).order(:title).page(params[:page])
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @channel = Channel.new
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @channel = Channel.new(channel_params)
 
     if @channel.save
-      redirect_to @channel, success: 'Successfully created channel'
+      redirect_to @channel, success: "Successfully created channel"
     else
       render :new
     end
@@ -27,7 +29,7 @@ class ChannelsController < SecureController
 
   def update
     if @channel.update(channel_params)
-      redirect_to @channel, success: 'Successfully updated channel'
+      redirect_to @channel, success: "Successfully updated channel"
     else
       render :edit
     end
@@ -35,7 +37,7 @@ class ChannelsController < SecureController
 
   def destroy
     @channel.destroy
-    redirect_to channels_url, success: 'Successfully deleted channel'
+    redirect_to channels_url, success: "Successfully deleted channel"
   end
 
   private

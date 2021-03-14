@@ -26,7 +26,7 @@
 #  fk_rails_c017bf7b32  (category_id => categories.id)
 #
 class Channel < ApplicationRecord
-  validates :image_url, url: { allow_blank: true }
+  validates :image_url, url: {allow_blank: true}
 
   validates :title, presence: true
 

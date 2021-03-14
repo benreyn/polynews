@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Category, type: :model do
   it :aggregate_failures do
@@ -13,7 +13,7 @@ RSpec.describe Category, type: :model do
     is_expected.to have_many(:articles).through(:channels).dependent(:restrict_with_error)
   end
 
-  describe 'uniqueness' do
+  describe "uniqueness" do
     subject(:category) { build(:category) }
 
     it :aggregate_failures do

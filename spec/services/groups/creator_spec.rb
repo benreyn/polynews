@@ -1,19 +1,19 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Groups::Creator, type: :service do
-  describe '#call' do
-    context 'when there is an article with no matching exiting group' do
-      it 'creates a new group for the article' do
+  describe "#call" do
+    context "when there is an article with no matching exiting group" do
+      it "creates a new group for the article" do
         channel = create(:channel, :with_category)
         category = channel.category
         existing_article = create(
           :article,
           :uses_scraper,
           channel: channel,
-          title: 'One fish, two fish, red fish, blue fish',
-          scraped_content: 'From there to here, from here to there, funny things are everywhere!'
+          title: "One fish, two fish, red fish, blue fish",
+          scraped_content: "From there to here, from here to there, funny things are everywhere!"
         )
         existing_group = create(:group, category: category, articles: [existing_article])
 
@@ -22,9 +22,9 @@ RSpec.describe Groups::Creator, type: :service do
           :article,
           :uses_scraper,
           channel: channel,
-          title: 'The cat in the hat',
-          scraped_content: '“Now! Now! Have no fear. Have no fear!” said the cat. ' \
-            '“My tricks are not bad,” said the Cat in the Hat.',
+          title: "The cat in the hat",
+          scraped_content: "“Now! Now! Have no fear. Have no fear!” said the cat. " \
+            "“My tricks are not bad,” said the Cat in the Hat.",
           published_at: published_at
         )
         creator = described_class.new
@@ -47,8 +47,8 @@ RSpec.describe Groups::Creator, type: :service do
       end
     end
 
-    context 'when there is an article with a matching exiting group' do
-      it 'adds the article to the group, updates group cache' do
+    context "when there is an article with a matching exiting group" do
+      it "adds the article to the group, updates group cache" do
         channel = create(:channel, :with_category)
         category = channel.category
         latest_published_at = Time.new(2020, 1, 1).utc
@@ -56,8 +56,8 @@ RSpec.describe Groups::Creator, type: :service do
           :article,
           :uses_scraper,
           channel: channel,
-          title: 'One fish, two fish, red fish, blue fish',
-          scraped_content: 'From there to here, from here to there, funny things are everywhere!',
+          title: "One fish, two fish, red fish, blue fish",
+          scraped_content: "From there to here, from here to there, funny things are everywhere!",
           published_at: latest_published_at
         )
         existing_group = create(:group, category: category, articles: [existing_article])
@@ -65,9 +65,9 @@ RSpec.describe Groups::Creator, type: :service do
           :article,
           :uses_scraper,
           channel: channel,
-          title: 'The cat in the hat',
-          scraped_content: '“Now! Now! Have no fear. Have no fear!” said the cat. ' \
-            '“My tricks are not bad,” said the Cat in the Hat.',
+          title: "The cat in the hat",
+          scraped_content: "“Now! Now! Have no fear. Have no fear!” said the cat. " \
+            "“My tricks are not bad,” said the Cat in the Hat.",
           published_at: latest_published_at - 1.day
         )
         creator = described_class.new

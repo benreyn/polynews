@@ -17,15 +17,15 @@ module Matchers
 
   class ValidateUrlFormatOfMatcher
     INVALID_URLS = [
-      '...example',
-      'example.',
-      'example.com',
-      'htp://example',
-      'http://examp   le.com',
-      'ftp://example.com/some-file.txt'
+      "...example",
+      "example.",
+      "example.com",
+      "htp://example",
+      "http://examp   le.com",
+      "ftp://example.com/some-file.txt"
     ].freeze
 
-    DEFAULT_ATTRIBUTE_ERROR_MESSAGE = 'is an invalid URL'
+    DEFAULT_ATTRIBUTE_ERROR_MESSAGE = "is an invalid URL"
 
     attr_reader :attr, :_allow_blank, :_message, :_match_failure_messages
 
@@ -60,7 +60,7 @@ module Matchers
     end
 
     def failure_message
-      _match_failure_messages.join('. ')
+      _match_failure_messages.join(". ")
     end
 
     def failure_message_when_negated
@@ -89,7 +89,7 @@ module Matchers
     end
 
     def _run_blank_match(subject)
-      return if _allow_blank ^ _causes_validation_error?('', subject)
+      return if _allow_blank ^ _causes_validation_error?("", subject)
 
       _match_failure_messages << _failure_message_blank_behavior
     end

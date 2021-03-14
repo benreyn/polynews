@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'lemmatizer'
+require "lemmatizer"
 
 module NLP
   module Operations
@@ -9,12 +9,12 @@ module NLP
     SENTENCE_BREAK_PATTERN = /(?<![A-Z][a-z]\.)(?<!\w\.\w)(?<=[?!.])\s+(?=[A-Z])/.freeze
     WORD_BREAK_PATTERN = /(?<=\w)\s(?=\w)|[\W\s]{2,}|\W+\z/.freeze
 
-    STOP_WORD_DICTIONARY_PATH = File.join(File.dirname(__FILE__), 'stop_word_dictionary.txt')
+    STOP_WORD_DICTIONARY_PATH = File.join(File.dirname(__FILE__), "stop_word_dictionary.txt")
     STOP_WORD_DICTIONARY = IO.read(STOP_WORD_DICTIONARY_PATH).split("\n")
 
     Downcaser = ->(string) { string.downcase }
 
-    PunctuationRemover = ->(string) { string.gsub(/[^\w\s]/, '') }
+    PunctuationRemover = ->(string) { string.gsub(/[^\w\s]/, "") }
 
     SentenceTokenizer = ->(string) { string.split(SENTENCE_BREAK_PATTERN).map(&:strip) }
 

@@ -11,7 +11,7 @@
 # When allowing blank:
 # validates :attribute, url: { allow_blank: true }
 class UrlValidator < ActiveModel::EachValidator
-  DEFAULT_MESSAGE = 'is an invalid URL'
+  DEFAULT_MESSAGE = "is an invalid URL"
 
   VALID_URI_KINDS = [URI::HTTP, URI::HTTPS].freeze
 
@@ -30,7 +30,7 @@ class UrlValidator < ActiveModel::EachValidator
       false
     end
 
-    VALID_URI_KINDS.include?(uri.class) && uri.hostname&.include?('.')
+    VALID_URI_KINDS.include?(uri.class) && uri.hostname&.include?(".")
   end
 
   def validate_each(record, attribute, value)

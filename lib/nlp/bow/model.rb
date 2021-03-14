@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'matrix'
+require "matrix"
 
 module NLP
   module BOW
@@ -8,7 +8,7 @@ module NLP
       include NLP::Operations
 
       attr_reader :vocabulary, :document_count, :aggregate_document_length,
-                  :tokenizer, :sorted_tokens, :algorithm
+        :tokenizer, :sorted_tokens, :algorithm
 
       def initialize(tokenizer: WordNormalizer, algorithm: TfIdfAlgorithm)
         @tokenizer = tokenizer
@@ -51,7 +51,7 @@ module NLP
 
       def default_vocabulary
         Hash.new do |hash, key|
-          hash[key] = { count: 0, documents_containing: 0 }
+          hash[key] = {count: 0, documents_containing: 0}
         end
       end
     end

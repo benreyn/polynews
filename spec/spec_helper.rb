@@ -1,15 +1,15 @@
-require 'simplecov'
+require "simplecov"
 SimpleCov.start do
-  add_filter '/spec/'
-  add_filter '/config/'
+  add_filter "/spec/"
+  add_filter "/config/"
 
   minimum_coverage 90
 end
 
-require 'webmock/rspec'
-require 'test-prof'
-require 'vcr'
-require_relative 'support/helpers'
+require "webmock/rspec"
+require "test-prof"
+require "vcr"
+require_relative "support/helpers"
 
 RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
@@ -27,6 +27,6 @@ RSpec.configure do |config|
 end
 
 VCR.configure do |config|
-  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
+  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
   config.hook_into :webmock
 end

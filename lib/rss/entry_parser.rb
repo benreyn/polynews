@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'feedjira'
-require 'nokogiri'
-require 'sax-machine'
+require "feedjira"
+require "nokogiri"
+require "sax-machine"
 
 module RSS
   class EntryParser

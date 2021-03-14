@@ -3,7 +3,7 @@
 module Groups
   class Creator
     attr_reader :model, :max_angle_between_articles, :article_vectors,
-                :group_vectors, :article_data, :articles, :groups
+      :group_vectors, :article_data, :articles, :groups
 
     def call(articles:, groups:, max_angle_between_articles: 1.35)
       init(articles, groups, max_angle_between_articles)
@@ -100,8 +100,8 @@ module Groups
 
     def group_relation(groups)
       groups
-        .joins(articles: { channel: :category })
-        .includes(articles: { channel: :category })
+        .joins(articles: {channel: :category})
+        .includes(articles: {channel: :category})
         .select(
           :id,
           :'articles.id',

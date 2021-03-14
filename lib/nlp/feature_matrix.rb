@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'matrix'
+require "matrix"
 
 module NLP
   class FeatureMatrix < Matrix

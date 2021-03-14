@@ -1,5 +1,5 @@
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../config/environment', __dir__)
+ENV["RAILS_ENV"] ||= "test"
+require File.expand_path("../config/environment", __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 
 begin
@@ -9,12 +9,12 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 
-require 'spec_helper'
-require 'capybara/rspec'
-require 'rspec/rails'
-require 'database_cleaner/active_record'
+require "spec_helper"
+require "capybara/rspec"
+require "rspec/rails"
+require "database_cleaner/active_record"
 
-Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
+Dir[Rails.root.join("spec", "support", "**", "*.rb")].sort.each { |f| require f }
 
 module Features
   include Formulaic::Dsl
