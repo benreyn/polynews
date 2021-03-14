@@ -18,7 +18,7 @@ RSpec.describe Articles::ContentScraper, type: :service do
         'goods and technology. The list, if published, could further ' \
         'escalate trade tensions with Beijing and hurt U.S. companies that ' \
         'sell civil aviation parts and components to China, among other ' \
-        "industries.\nThe news pushed the yuan lower against the dollar on Monday. "
+        "industries.\nThe news pushed the yuan lower against the dollar on Monday. \n\n"
     end
 
     context 'when not already scraped' do
